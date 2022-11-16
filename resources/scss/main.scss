@@ -7,6 +7,10 @@ html, body {
   margin: 0;
 }
 
+a:hover{
+  color:#222;
+}
+
 .full-height {
   height: 100vh;
 }
@@ -43,6 +47,15 @@ html, body {
 
 .m-b-md {
   margin-bottom: 30px;
+  background-image:url('img/bcg2.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height:40vh;
+  color: #a2e4e4;
+  font-weight:900;
+  text-shadow: 2px 2px #1f0000;
 }
 
 footer{
@@ -64,7 +77,52 @@ footer{
   padding: 10px;
   margin: 20px auto;
 }
+/* menu edit and display */
+.menu-index{
+  h1{
+    margin-bottom: 40px;
+  }
+  .menu-item{
+    margin: 10px 0;
+    padding: 12px;
+    background: #f4f4f4;
 
+    button{
+      width:60px;
+      display:inline-block;
+      margin-right:20px;
+      border-radius:6px;
+      background-color: #FF8787;
+    }
+    button:hover{
+      background-color: #E26868;
+    }
+    form{
+      display:inline-block;
+      margin-left: 360px;
+    }
+    img{
+      width: 60px;
+      display: inline-block;
+    }
+    h5{
+      display: inline-block;
+      font-weight: normal;
+      margin-right:460px;
+
+      a{
+        color: #777;
+        text-decoration: none !important;
+        b{
+          margin-left:50px;
+        }
+      }
+      a:hover{
+        color:#222;
+      }
+    }
+  }
+}
 /* create pizza form */
 
 .create-pizza{
@@ -141,13 +199,19 @@ fieldset{
       width: 60px;
       display: inline-block;
     }
-    h4{
+    h5{
       display: inline-block;
       font-weight: normal;
       margin-left: 20px;
       a{
         color: #777;
         text-decoration: none !important;
+        b{
+          margin-left:50px;
+        }
+      }
+      a:hover{
+        color:#222;
       }
     }
   }

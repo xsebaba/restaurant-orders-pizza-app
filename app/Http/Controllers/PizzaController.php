@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pizza;
 
+
 class PizzaController extends Controller
 {
     public function index(){
-      $pizzas = Pizza::all();
+      $pizzas = Pizza::all()->sortByDesc('id');
       return view('pizzas.index',[
           'pizzas' => $pizzas,
         ]);
@@ -32,15 +33,25 @@ class PizzaController extends Controller
       $pizza->tel = request('tel');
       $pizza->toppings = request('toppings');
       $pizza->price = request('price');
+      $pizza->finalized = false;
 
       $pizza->save();
       return redirect('/')->with('mssg', 'Dziękujemy za złożenie zamówienia!');
+    }
+
+    public function update($id){
+      $pizza= Pizza::findOrFail($id);
+
+      $pizza->finalized = true;
+      $pizza->save();
+
+      return redirect('/pizzas');
     }
 
     public function destroy($id){
       $pizza= Pizza::findOrFail($id);
       $pizza->delete();
 
-      return redirect('/pizzas');
+      return redirect('pizzas');
     }
 }

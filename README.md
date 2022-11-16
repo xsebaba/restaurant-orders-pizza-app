@@ -62,3 +62,8 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+#### This is a simple app for managing orders in restaurant/pizzahouse.
+Authorized employees of the restaurant are entitled to check if there are new orders and check them when it done. 
+Customers may order a meal online using this app, but it is also possible to record new orders in-house by a waiters. If the order is with delivery, the address and telephone number of a customer is necessary. 

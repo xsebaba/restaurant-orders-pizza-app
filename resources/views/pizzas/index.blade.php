@@ -7,17 +7,24 @@
 
         @foreach($pizzas as $pizza)
           <div class="pizza-item">
-             <h4><a href="/pizzas/{{$pizza->id}}"> {{ $pizza->name }} zamówił {{$pizza->type}} dodatki {{$pizza->base}}
+             <h5><a href="/pizzas/{{$pizza->id}}">
+               <b style="color:#083efd;"> {{ $pizza->type }} </b>  dodatki: {{$pizza->base}}
                @foreach($pizza->toppings as $topping)
                {{$topping}}
                @endforeach
 
                @if(isset($pizza->delivery))
-               <b style="color:#083efd;"> Dostawa</b>
+                  <b style="color:#083efd;"> Dostawa </b>
                @else
-               <b style="color:#1134fd;"> Na miejscu</b>
+                  <b style="color:#1134fd;"> Na miejscu </b>
                @endif
-             </a></h4>
+
+               @if($pizza->finalized==true)
+                 <b> Zamówienie zrealizowane </b>
+               @else
+                 <b style="color:#ff8c00"> W trakcie przygotowania </b>
+               @endif
+             </a></h5>
           </div>
         @endforeach
 

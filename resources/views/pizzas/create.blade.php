@@ -5,16 +5,34 @@
   <h2> Stwórz nową pizzę</h2>
   <form action="/pizzas" method="POST">
     @csrf
-    <label for="name">Twoje imię:</label>
-    <input type="text" id="name" name="name">
-    <label for="delivery">Adres Dostawy:</label>
-    <input type="text" id="delivery" name="delivery">
-    <label for="tel"> Telefon klienta: </label>
-    <input type="number" id="tel" name="tel">
+    <div onclick="checkDelivery()" style="
+      background: #c2c2b3; width: 260px; text-align:center; border-radius:2px;padding: 4px; cursor:pointer">
+      Kliknj jeśli zamówienie jest z dowozem
+    </div>
+    <div id="deliveryCheck" style="display:none;">
+      <label for="name">Twoje imię:</label>
+      <input type="text" id="name" name="name">
+      <label for="delivery">Adres Dostawy - Ulica</label>
+      <input type="text" id="delivery_street" name="delivery_street">
+      <label for="delivery">Adres Dostawy - Numer domu i lokalu</label>
+      <input type="text" id="delivery_number" name="delivery_number">
+      <label for="delivery">Adres Dostawy - Kod Pocztowy</label>
+      <input type="text" id="delivery" name="delivery_post">
+      <label for="tel"> Telefon kontaktowy: </label>
+      <input type="number" id="tel" name="tel">
+    </div>
+      <div id="away">
+          <label for="tel"> Na miejscu czy na wynos? </label>
+          <select name="awaySelect" id="awaySelect">
+            <option value="inside"> Na miejscu </option>
+            <option value="outside"> Na wynos </option>
+          </select>
+      </div>
+
     <input type="hidden" id="price" name="price" value="10">
-    <label for="name">Wybierz pizzę:</label>
-    <select name="type" id="type">
-      <option value="margarita">Margarita</option>
+    <label>Wybierz pizzę:</label>
+        <select name="type" id="type">
+          <option value="margarita">Margarita</option>
       <option value="havaiian">Hawajska</option>
       <option value="salsicia">Salsicia</option>
     </select>
@@ -36,4 +54,17 @@
     <input type="submit" value="Zamów">
   </form>
 </div>
+
+<script>
+  function checkDelivery() {
+    var x = document.getElementById("deliveryCheck");
+    var y = document.getElementById("away");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      y.style.display = "none";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>
 @endsection
