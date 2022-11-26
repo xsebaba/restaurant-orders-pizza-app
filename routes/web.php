@@ -26,10 +26,17 @@ Route::put('/pizzas/{id}', 'App\Http\Controllers\PizzaController@update')->middl
 
 Route::get('/menu/create', 'App\Http\Controllers\MenuController@create')->middleware('auth');
 Route::post('/menu', 'App\Http\Controllers\MenuController@store');
-Route::get('/menu', 'App\Http\Controllers\MenuController@index');
 Route::delete('/menu/{id}','App\Http\Controllers\MenuController@destroy')->middleware('auth');
 Route::get('/menu/{id}','App\Http\Controllers\MenuController@edit')->middleware('auth');
 Route::put('/menu/{id}','App\Http\Controllers\MenuController@update')->middleware('auth');
+
+Route::get('/type/create', 'App\Http\Controllers\MenuTypesController@create')->middleware('auth');
+Route::get('/menu', 'App\Http\Controllers\MenuTypesController@index');
+Route::post('/type', 'App\Http\Controllers\MenuTypesController@store');
+Route::delete('/type/{id}','App\Http\Controllers\MenuTypesController@destroy')->middleware('auth');
+Route::get('/type/{id}','App\Http\Controllers\MenuTypesController@edit')->middleware('auth');
+Route::put('/type/{id}','App\Http\Controllers\MenuTypesController@update')->middleware('auth');
+
 Auth::routes(
 //  ['register'=>false] //'register'=>false if for disable registration. I you want to make registration available just delete this array between ()
 );

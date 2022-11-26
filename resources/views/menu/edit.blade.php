@@ -4,7 +4,8 @@
 <div class="wrapper create-pizza">
   <h2> Edytujesz istniejącą pozycję z menu</h2>
 
-  <form action="/menu" method="POST">
+  <form action="/menu/{{$menu->id}}" method="POST">
+    @method('PUT')
     @csrf
 
     <label for="types"> Rodzaj pozycji z menu </label>

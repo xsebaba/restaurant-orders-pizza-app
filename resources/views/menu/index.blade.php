@@ -1,87 +1,48 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="wrapper menu-index">
-
-<b style="color:#083efd;"> Przystawki </b>
-
-        @foreach($starters as $starter)
-          <div class="menu-item">
-
-               <h5>{{$starter->name_item}}</h5>
-
-               <form action="/menu/{{$starter->id}}" method="POST">
-                 @csrf
-                 @method('DELETE')
-                 <button>Usuń</button>
-               </form>
-               <a href="/menu/{{$starter->id}}">
+  <h1> Sprawdź nasze menu</h1>
+          @foreach($types as $type)
+            
+            <div class="menutype-item">
+                <h6>{{$type->typename}}</h6>
+                @auth
+                <form action="/type/{{$type->id}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button>Usuń</button>
+                </form>
+                <a href="/type/{{$type->id}}">
                 <button>Edytuj</button>
-               </a>
+                </a>
+                @endauth
+            </div>
 
-               <br>
-               {{$starter->ingredients}}
+            
+            @foreach($type->menu as $ty)
+              <div class="menu-item">
+                <h5>{{strtoupper($ty->name_item)}}</h5>
+                @auth
+                  <form action="/menu/{$menu->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button>Usuń</button>
+                  </form>
+                  <a href="/menu/{$menu->id}}">
+                    <button>Edytuj</button>
+                  </a>
+                @endauth
+               {{$ty->ingredients}}
+              </div> 
+            @endforeach
+            
+          @endforeach
+          @auth
+          <a href="/type/create"><h2>Dodaj nową pozycję</h2></a>
+          @endauth
 
-          </div>
-        @endforeach
-        <br>
-<b style="color:#083efd;"> Dania Główne </b>
-        @foreach($mainmeals as $mainmeal)
-          <div class="menu-item">
-               <h5>
-                 {{$mainmeal->name_item}}
-               </h5>
-               <form action="/menu/{{$mainmeal->id}}" method="POST">
-                 @csrf
-                 @method('DELETE')
-                 <button>Usuń</button>
-               </form>
-               <a href="/menu/{{$mainmeal->id}}">
-                <button>Edytuj</button>
-               </a>
-               <br>
-               {{$mainmeal->ingredients}}
-
-          </div>
-        @endforeach
-        <br>
-  <b style="color:#083efd;"> Pizza </b>
-        @foreach($pizzas as $pizza)
-          <div class="menu-item">
-
-               <h5>{{$pizza->name_item}}</h5>
-               <form action="/menu/{{$pizza->id}}" method="POST">
-                 @csrf
-                 @method('DELETE')
-                 <button>Usuń</button>
-               </form>
-               <a href="/menu/{{$pizza->id}}">
-                <button>Edytuj</button>
-               </a>
-
-               <br>
-               {{$pizza->ingredients}}
-
-          </div>
-        @endforeach
-  <b style="color:#083efd;"> Napoje </b>
-        @foreach($beverages as $beverage)
-          <div class="menu-item">
-
-               <h5>{{$beverage->name_item}}</h5>
-               <form action="/menu/{{$beverage->id}}" method="POST">
-                 @csrf
-                 @method('DELETE')
-                 <button>Usuń</button>
-               </form>
-               <a href="/menu/{{$beverage->id}}">
-                <button>Edytuj</button>
-               </a>
-               <br>
-               {{$beverage->ingredients}}
-
-          </div>
-        @endforeach
 
 
 </div>

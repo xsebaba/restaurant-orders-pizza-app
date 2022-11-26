@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('menu', function (Blueprint $table) {
             $table->id();
-            $table->string('types');
+            $table->foreignId('type_id');
             $table->string('name_item');
             $table->string('ingredients');
             $table->float('price', 7,2);

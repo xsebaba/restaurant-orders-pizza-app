@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Menu extends Model
+
+
+class Type extends Model
 {
     use HasFactory;
-    protected $table = 'menu';
+    protected $table = 'menutypes';
 
-    public function type(){
-      return $this->belongsTo(Type::class, 'type_id');
+    public function menu(){
+      return $this->hasMany(Menu::class);
     }
-
 }

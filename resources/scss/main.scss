@@ -82,6 +82,49 @@ footer{
   h1{
     margin-bottom: 40px;
   }
+}
+  .menutype-item{
+    margin: 10px 0;
+    padding: 12px;
+    
+
+    button{
+      width:60px;
+      display:inline-block;
+      margin-right:20px;
+      border-radius:6px;
+      background-color: #f1e4fa;
+    }
+    button:hover{
+      background-color: #d48eff;
+    }
+    form{
+      display:inline-block;
+      margin-left: 240px;
+    }
+    img{
+      width: 60px;
+      display: inline-block;
+    }
+    h6{
+      display: inline-block;
+      width:220px;
+      font-weight: normal;
+      margin-right:460px;
+
+      a{
+        color: #777;
+        text-decoration: none !important;
+        b{
+          margin-left:50px;
+        }
+      }
+      a:hover{
+        color:#222;
+      }
+    }
+  }
+
   .menu-item{
     margin: 10px 0;
     padding: 12px;
@@ -99,7 +142,7 @@ footer{
     }
     form{
       display:inline-block;
-      margin-left: 360px;
+      margin-left: 240px;
     }
     img{
       width: 60px;
@@ -107,6 +150,7 @@ footer{
     }
     h5{
       display: inline-block;
+      width:220px;
       font-weight: normal;
       margin-right:460px;
 
@@ -122,7 +166,7 @@ footer{
       }
     }
   }
-}
+
 /* create pizza form */
 
 .create-pizza{
